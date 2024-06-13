@@ -16,20 +16,42 @@ public class Queue {
     public void enqueue(Kendaraan kendaraan, int bulanYgDibayarkan){
         int kode = 1;
 
+        
         // nominal operation
-        if (kendaraan.jenis.equals("Motor")) {
+        long nominalBayar =0;
+        if (kendaraan.jenis.equalsIgnoreCase("Motor")) {
             if (kendaraan.cc <100) {
-                long nominalBayar = kendaraan.bulanHarusBayar*100000;
+                nominalBayar = kendaraan.bulanHarusBayar*100000;
             }else 
             if(kendaraan.cc < 250){
-                long nominalBayar = kendaraan.bulanHarusBayar*250000;
+                nominalBayar = kendaraan.bulanHarusBayar*250000;
             }else
             if(kendaraan.cc > 250 ){
-                long nominalBayar = kendaraan.bulanHarusBayar*500000;
+                nominalBayar = kendaraan.bulanHarusBayar*500000;
             }
             
+        }else
+        if (kendaraan.jenis.equalsIgnoreCase("Mobil")) {
+            if (kendaraan.) {
+                
+            }
         }
-        this.antriBayar[tail] = new TransaksiPajak(kode, nominalBayar, bulanYgDibayarkan, bulanYgDibayarkan, kendaraan);
+
+        // denda operation
+        long denda = 0;
+        if (bulanYgDibayarkan > kendaraan.bulanHarusBayar) {
+            if (bulanYgDibayarkan - kendaraan.bulanHarusBayar <=3) {
+                denda = 50000;
+            }else
+            if (bulanYgDibayarkan - kendaraan.bulanHarusBayar >3) {
+                denda = (bulanYgDibayarkan-kendaraan.bulanHarusBayar)*50000;
+            }
+        }
+
+
+
+
+        this.antriBayar[tail] = new TransaksiPajak(kode, nominalBayar, denda, bulanYgDibayarkan, kendaraan);
         tail++;
         size++;
         kode++;
