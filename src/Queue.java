@@ -32,9 +32,15 @@ public class Queue {
             
         }else
         if (kendaraan.jenis.equalsIgnoreCase("Mobil")) {
-            if (kendaraan.) {
-                
+            if (kendaraan.cc <1000) {
+                nominalBayar = kendaraan.bulanHarusBayar*1000000;
             }
+        }else
+        if (kendaraan.cc < 2500) {
+            nominalBayar = kendaraan.bulanHarusBayar*1000000;
+        }else
+        if (kendaraan.cc > 2500) {
+            nominalBayar = kendaraan.bulanHarusBayar*1500000;
         }
 
         // denda operation
